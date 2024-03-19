@@ -12,7 +12,7 @@ function HomePage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://sql6.freesqldatabase.com/submit', { username, language, stdin, sourceCode });
+      await axios.post('https://kodeitplayground.onrender.com/submit', { username, language, stdin, sourceCode });
       navigate('/snippets');
     } catch (error) {
       console.error('Error submitting snippet: ', error);
