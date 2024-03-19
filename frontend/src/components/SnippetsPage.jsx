@@ -9,7 +9,7 @@ function SnippetsPage() {
   useEffect(() => {
     const fetchConfig = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/config');
+        const response = await axios.get('http://sql6.freesqldatabase.com/api/config');
         setApiKey(response.data.apiKey);
       } catch (error) {
         console.error('Error fetching config: ', error);
@@ -21,7 +21,7 @@ function SnippetsPage() {
   useEffect(() => {
     const fetchSnippets = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/snippets');
+        const response = await axios.get('http://sql6.freesqldatabase.com/snippets');
         setSnippets(response.data);
       } catch (error) {
         console.error('Error fetching snippets: ', error);

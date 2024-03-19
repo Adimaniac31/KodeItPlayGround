@@ -7,14 +7,14 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const app = express();
-const port = 5000;
+const port = process.env.port || 5000;
 
 // MySQL Connection
 const connection = createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '',
-  database: 'code_snippets'
+  host: process.env.host || 'localhost',
+  user: process.env.user || '',
+  password: process.env.pass || '',
+  database: process.env.dbName ||'code_snippets'
 });
 
 connection.connect(err => {
