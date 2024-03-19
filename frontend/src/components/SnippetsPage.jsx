@@ -5,6 +5,7 @@ import axios from 'axios';
 function SnippetsPage() {
   const [snippets, setSnippets] = useState([]);
   const [apiKey, setApiKey] = useState('');
+  const [expandedSnippetIndex, setExpandedSnippetIndex] = useState(null);
 
   useEffect(() => {
     const fetchConfig = async () => {
@@ -120,7 +121,19 @@ function SnippetsPage() {
                 <td>{snippet.username}</td>
                 <td>{snippet.language}</td>
                 <td>{snippet.stdin}</td>
-                <td>{snippet.sourceCodePreview}</td>
+                {/* <td>{snippet.sourceCodePreview}</td> */}
+                <td>
+                  {snippet.sourceCodePreview.length > 100 ? (
+                    <>
+                      {snippet.sourceCodePreview.slice(0, 100)}
+                      <button onClick={() => alert(snippet.sourceCodePreview)}>
+                        <span className="text-green-800">View Full Code</span>
+                      </button>
+                    </>
+                  ) : (
+                    snippet.sourceCodePreview
+                  )}
+                </td>
                 <td>
                   <button onClick={async () => {
                     const output = await fetchOutput(snippet.sourceCodePreview, snippet.language, snippet.stdin);
