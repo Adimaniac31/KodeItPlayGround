@@ -5,7 +5,6 @@ import axios from 'axios';
 function SnippetsPage() {
   const [snippets, setSnippets] = useState([]);
   const [apiKey, setApiKey] = useState('');
-  const [expandedSnippetIndex, setExpandedSnippetIndex] = useState(null);
 
   useEffect(() => {
     const fetchConfig = async () => {
